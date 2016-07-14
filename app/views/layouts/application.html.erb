@@ -4,11 +4,40 @@
   <title>Tumbler</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= favicon_link_tag 'favicon.ico' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+	<nav class="navbar navbar-default navbar-static-top">
+		<div class="container">
+			<div class="navbar-header">
+				<%= link_to root_path do %>
+					<%= image_tag('ico.png', class: "navbar-brand") %>
+				<% end %>
+			</div>
 
+			<ul class="nav navbar-nav navbar-right">
+				<li><%= link_to "Utwórz post", new_post_path %></li>
+				<li><a href="#">Wyloguj</a></li>
+			</ul>
+		</div>
+	</nav>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-2 text-right">
+				<h3>Thubler</h3>
+				<ul class="nav nav-sidebar">
+					<li><%= link_to "Zobacz posty", posts_path %></li>
+					<li><a href="#">O nas</a></li>
+					<li><a href="#">Zaloguj</a></li>
+				</ul>
+			</div>
+			<div class="col-md-10">
+				<%= bootstrap_flash %>
+				<%= yield %>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
