@@ -9,4 +9,17 @@
 			<p><%= @post.body %></p>
 		</div>
 	</div>
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1 text-justify">
+		<h2><%= @post.comments.count %> posts</h2>
+		<%= render partial: @post.comments %>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-4 col-md-offset-1">
+		<h2>Join Discussion:</h2>
+		<%= render partial: 'comments/form' %>
+		</div>
+	</div>
 </div>
