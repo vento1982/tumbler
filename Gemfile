@@ -26,6 +26,8 @@ gem 'kaminari'
 gem 'twitter-bootstrap-rails'
 gem 'rails-i18n'
 gem 'simple_form', '~> 3.0.2'
+gem 'devise', '~> 3.4.0'
+gem 'devise-bootstrap-views', '~> 0.0.7'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -18,8 +18,12 @@
 			</div>
 
 			<ul class="nav navbar-nav navbar-right">
-				<li><%= link_to "Utwórz post", new_post_path %></li>
-				<li><a href="#">Wyloguj</a></li>
+				<% if user_signed_in? %>
+						<li><%= link_to "Utwórz post", new_post_path %></li>
+						<li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
+				<% else %>
+						<li><%= link_to "Sign Up", new_user_registration_path %></li>
+				<% end %>
 			</ul>
 		</div>
 	</nav>
@@ -37,7 +41,9 @@
 				<ul class="nav nav-sidebar">
 					<li><%= link_to "Zobacz posty", posts_path %></li>
 					<li><%= link_to "About", about_path %></li>
-					<li><a href="#">Zaloguj</a></li>
+					<% if !user_signed_in? %>
+					<li><%= link_to "Log In", new_user_session_path %></li>
+					<% end %>
 				</ul>
 			</div>
 			<div class="col-md-10">
